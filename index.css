@@ -85,7 +85,7 @@ header {
   text-align: center;
 }
 
-.top-section-el {
+.input-section-el {
   margin-top: 3em;
   background-color: lightgray;
   padding: 1em;
@@ -108,4 +108,43 @@ select {
 
 button {
   cursor: pointer;
+}
+
+/* output styling */
+
+.output-section {
+  margin-top: 2em;
+}
+
+.issue-box-el {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: lightyellow;
+}
+
+.issue-box-el h2 {
+  margin: 0.5em 0;
+  font-size: 1.8rem;
+}
+
+.job-status {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: blue;
+  color: white;
+  text-transform: uppercase;
+  max-width: 75px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.priority-box-el {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: red;
+  color: white;
+  text-transform: uppercase;
+  max-width: 100px;
+  border: 1px solid white;
+  border-radius: 5px;
 }
