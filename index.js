@@ -9,11 +9,12 @@ document.querySelector(".input-section-el").innerHTML = issueInsert;
 // 2. create constructor function / CLASS
 
 class IssueObject {
-  constructor(issue, priority, date, assigned) {
+  constructor(issue, priority, date, assigned, assignor) {
     this.issue = issue;
     this.priority = priority;
     this.date = date;
     this.assigned = assigned;
+    this.assignor = assignor;
     // additional
     this.ident = generateRandomID();
   }
@@ -31,8 +32,15 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
   const priority = document.getElementById("dropdown-id").value;
   const date = document.getElementById("date-id").value;
   const assigned = document.getElementById("assigned-id").value;
+  const assignor = document.getElementById("assignor-id").value;
 
-  const newIssueArray = new IssueObject(issue, priority, date, assigned);
+  const newIssueArray = new IssueObject(
+    issue,
+    priority,
+    date,
+    assigned,
+    assignor
+  );
 
   // Check for duplicates based on the "ident" property
   const isDuplicate = issueObjectArray.some(
@@ -46,15 +54,34 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
     .map(function (issue) {
       return `
       <div class="issue-box-el">
-      <p>Issue ID: ${issue.ident}</p>
-      <div id="job-status-id" class="job-status">open</div>
-      <p>Deadline: ${issue.date}</p>
-      <h2>${issue.issue}</h2>
-      <div class="priority-name-el">
-        <div class="priority-box-el">${issue.priority}</div>
-        <div>Assigned: ${issue.assigned}</div>
+            <div class="issue-box-top-info">
+                <p>Issue ID: ${issue.ident}</p>
+                <p class="deadline-style">Deadline: ${issue.date}</p>
+            </div>
+
+            <div class="issue-box-status-el">
+                <div id="job-status-id" class="job-status"><span class="job-status-span">open</span>
+                </div>
+                
+                <div class="priority-name-el">
+                <div><span class="priority-box-el">${issue.priority}</span></div>
+                </div>
+            </div>
+            
+            <h2>${issue.issue}</h2>
+
+            <div class="assign-el">
+                <div>Assigned to: ${issue.assigned}</div>
+                <div>Assigned by: ${issue.assignor}</div>
+            </div>
+
+            <div class="button-el">
+                <button id="close-btn-el" class="close-btn">Close</button>
+                <button id="delete-btn-el" class="delete-btn">Delete</button>
+                <button id="archive-btn-el" class="archive-btn">Archive</button>
+            </div>
       </div>
-    </div>
+     
         `;
     })
     .join("");
@@ -78,4 +105,5 @@ function clearInputs() {
   const priority = (document.getElementById("dropdown-id").value = "");
   const date = (document.getElementById("date-id").value = "");
   const assigned = (document.getElementById("assigned-id").value = "");
+  const assignor = (document.getElementById("assignor-id").value = "");
 }

@@ -110,6 +110,13 @@ button {
   cursor: pointer;
 }
 
+/* form styling (issue-form) */
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
 /* output styling */
 
 .output-section {
@@ -123,28 +130,88 @@ button {
 }
 
 .issue-box-el h2 {
-  margin: 0.5em 0;
   font-size: 1.8rem;
 }
 
+.issue-box-top-info {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.issue-box-status-el {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.deadline-style {
+  border: red solid 1px;
+  padding: 0.5em 1.5em;
+}
+
 .job-status {
+  margin: 2em 0;
+}
+
+.job-status-span {
   margin: 1em 0;
-  padding: 0.5em 1em;
-  background-color: blue;
+  padding: 0.5em 1.5em;
+  background-color: lightblue;
   color: white;
   text-transform: uppercase;
-  max-width: 75px;
   border: 1px solid white;
   border-radius: 5px;
 }
 
 .priority-box-el {
   margin: 1em 0;
-  padding: 0.5em 1em;
+  padding: 0.5em 1.5em;
   background-color: red;
   color: white;
   text-transform: uppercase;
-  max-width: 100px;
   border: 1px solid white;
   border-radius: 5px;
+}
+
+.assign-el {
+  margin-top: 1em;
+}
+
+.button-el {
+  margin-top: 1em;
+}
+
+.button-el button {
+  margin-right: 0.5em;
+}
+
+.close-btn,
+.delete-btn,
+.archive-btn {
+  padding: 0.2em 1.5em;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  transition: 0.4s;
+}
+
+.close-btn:hover,
+.delete-btn:hover,
+.archive-btn:hover {
+  opacity: 0.5;
+  transition: 0.4s;
+}
+
+.close-btn {
+  background-color: black;
+}
+
+.delete-btn {
+  background-color: red;
+}
+
+.archive-btn {
+  background-color: blue;
 }
