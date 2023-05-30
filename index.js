@@ -53,7 +53,7 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
   document.getElementById("output-section-el").innerHTML = issueObjectArray
     .map(function (issue) {
       return `
-      <div class="issue-box-el">
+      <div class="issue-box-el" id="">
             <div class="issue-box-top-info">
                 <p>Issue ID: ${issue.ident}</p>
                 <p class="deadline-style">Deadline: ${issue.date}</p>
@@ -76,20 +76,40 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
             </div>
 
             <div class="button-el">
-                <button id="close-btn-el" class="close-btn">Close</button>
-                <button id="delete-btn-el" class="delete-btn">Delete</button>
-                <button id="archive-btn-el" class="archive-btn">Archive</button>
+                <button class="close-btn">Close</button>
+                <button class="delete-btn" >Delete</button>
+                <button class="archive-btn">Archive</button>
             </div>
       </div>
-     
         `;
     })
     .join("");
 
   clearInputs();
+
+  document.addEventListener("click", function (e) {
+    if (e.target.textContent === "Delete") {
+      console.log("Delete Item");
+    } else if (e.target.textContent === "Close") {
+      console.log("Close Item");
+    } else if (e.target.textContent === "Archive") {
+      console.log("Archive Item");
+    }
+  });
 });
 
-// function to generate random ID
+// function to generate random ID for EACH SECTION
+function generateRandomSectionID() {
+  let id = "";
+  const characters = "0123456789abcdef";
+
+  for (let i = 0; i < 10; i++) {
+    id += characters[Math.floor(Math.random() * characters.length)];
+  }
+  return id;
+}
+
+// function to generate random ID for TASK
 function generateRandomID() {
   let id = "";
   const characters = "0123456789abcdef";
