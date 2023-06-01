@@ -158,11 +158,15 @@ button {
 .job-status-span {
   margin: 1em 0;
   padding: 0.5em 1.5em;
-  background-color: lightblue;
+  background-color: green;
   color: white;
   text-transform: uppercase;
   border: 1px solid white;
   border-radius: 5px;
+}
+
+.job-status-close {
+  background-color: orange;
 }
 
 .priority-box-el {
@@ -177,6 +181,10 @@ button {
 
 .assign-el {
   margin-top: 1em;
+}
+
+.assign-el p {
+  font-size: 1rem;
 }
 
 .button-el {
@@ -214,4 +222,8 @@ button {
 
 .archive-btn {
   background-color: blue;
+}
+
+.remove {
+  display: none;
 }
